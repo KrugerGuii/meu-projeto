@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # Serviço do Backend (API)
+  backend:
+    build: ./backend
+    container_name: meu-backend-container
+    ports:
+      - "3001:3001"
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # Serviço do Frontend (React)
+  frontend:
+    build: ./frontend
+    container_name: meu-frontend-container
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    environment:
+      - REACT_APP_API_URL=http://backend:3001
+    restart: unless-stopped
+
+# Rede para comunicação entre containers
+networks:
+  app-network:
+    driver: bridge
