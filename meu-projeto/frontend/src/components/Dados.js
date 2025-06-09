@@ -22,7 +22,7 @@ const Dados = () => {
 
   useEffect(() => {
     fetchUsuario();
-  }, [id]);
+  },);
 
   const fetchUsuario = async () => {
     try {
@@ -71,7 +71,7 @@ const Dados = () => {
         <Button 
           variant="contained" 
           onClick={handleVoltar}
-          startIcon={<ArrowBack />}
+ l         startIcon={<ArrowBack />}
         >
           Fechar
         </Button>
@@ -100,7 +100,7 @@ const Dados = () => {
           onClick={handleVoltar}
           startIcon={<ArrowBack />}
         >
-          Fechar
+
         </Button>
       </Box>
 

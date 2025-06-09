@@ -5,12 +5,12 @@ const usuarios = require('./usuarios.json');
 
 app.use(cors());
 
-app.get('/usuarios', (req, res) => {
-  res.json(usuarios);
+app.get('/usuarios', (req, res) => {// Rota para listar todos os usuários
+  res.json(usuarios);//response com a lista de usuários
 });
 
-app.get('/usuarios/:id', (req, res) => {
-  const id = parseInt(req.params.id);
+app.get('/usuarios/:id', (req, res) => {// Rota para obter detalhes de um usuário específico
+  const id = parseInt(req.params.id); 
   const usuario = usuarios.find(u => u.id === id);
   if (usuario) {
     res.json(usuario);
